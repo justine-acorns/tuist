@@ -5,12 +5,10 @@ export const SERVER_URL = __ENV.SERVER_URL || 'https://staging.tuist.dev';
 export const REGION = __ENV.REGION || 'eu-central';
 export const RUN_ID = __ENV.RUN_ID || 'lt-local-' + Date.now();
 export const COMMIT_SHA = __ENV.COMMIT_SHA || 'unknown';
+export const CACHE_AUTH_TOKEN = __ENV.CACHE_AUTH_TOKEN || '';
 
 export const ACCOUNT_HANDLE = 'tuist';
 export const PROJECT_HANDLE = 'tuist';
-
-export const AUTH_EMAIL = 'tuistrocks@tuist.dev';
-export const AUTH_PASSWORD = 'tuistrocks';
 
 export const CACHE_BASE_URL = 'https://' + CACHE_HOST;
 

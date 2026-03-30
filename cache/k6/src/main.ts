@@ -2,7 +2,7 @@ import encoding from 'k6/encoding';
 import { Options } from 'k6/options';
 import { REGION, COMMIT_SHA } from './config.ts';
 import { ALL_NAMES } from './metrics.ts';
-import { authenticate } from './lib/auth.ts';
+import { authToken } from './lib/auth.ts';
 import { seedAll, seedDataOf, setupFromSeedData } from './lib/seed.ts';
 import { SeedData, SetupData } from './types.ts';
 
@@ -94,9 +94,8 @@ function loadSeedData(): SeedData | null {
 
 // --- Setup: authenticate and seed test data ---
 export function setup(): SetupData {
-  console.log('Authenticating against staging server...');
-  var token = authenticate();
-  console.log('Authentication successful.');
+  console.log('Using cache project token for region ' + REGION + '.');
+  var token = authToken();
 
   var existingSeedData = loadSeedData();
   if (existingSeedData) {
